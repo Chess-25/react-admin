@@ -5,7 +5,7 @@ import { BreadcrumbWrapper } from "./style"
 
 import { pathMapBreadcrumbs } from "@/utils/mapMenus"
 
-import { Breadcrumb } from "antd";
+import { Breadcrumb} from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -28,12 +28,14 @@ const Bread = memo((props) => {
   },[location])// eslint-disable-line
   return (
     <BreadcrumbWrapper>
-      <div className="trigger" onClick={toggle}>{collapsed?<MenuUnfoldOutlined />:<MenuFoldOutlined/>}</div>
-      <Breadcrumb>
-        {breadcrumbs.map((item) => {
-          return <Breadcrumb.Item key={item.name}>{item.name}</Breadcrumb.Item>;
-        })}
-      </Breadcrumb>
+      <div className="bread-left">
+        <div className="trigger" onClick={toggle}>{collapsed?<MenuUnfoldOutlined />:<MenuFoldOutlined/>}</div>
+        <Breadcrumb>
+          {breadcrumbs.length>0?breadcrumbs.map((item) => {
+            return <Breadcrumb.Item key={item.name}>{item.name}</Breadcrumb.Item>;
+          }):<Breadcrumb.Item>首页</Breadcrumb.Item>}
+        </Breadcrumb>
+      </div>
     </BreadcrumbWrapper>
   );
 });

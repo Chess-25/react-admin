@@ -1,3 +1,4 @@
+import { SearchOutlined,DownloadOutlined,SyncOutlined,DeleteOutlined,PlusCircleOutlined } from '@ant-design/icons';
 
 export const searchConfig = {
   labelWidth: '120px',
@@ -5,6 +6,12 @@ export const searchConfig = {
     padding: '10px 20px'
   },
   formItems: [
+    {
+      field: 'realname',
+      type: 'input',
+      label: '真实姓名',
+      placeholder: '请输入真实姓名'
+    },
     {
       field: 'id',
       type: 'input',
@@ -16,12 +23,6 @@ export const searchConfig = {
       type: 'input',
       label: '用户名',
       placeholder: '请输入用户名'
-    },
-    {
-      field: 'realname',
-      type: 'input',
-      label: '真实姓名',
-      placeholder: '请输入真实姓名'
     },
     {
       field: 'cellphone',
@@ -49,5 +50,37 @@ export const searchConfig = {
         type: 'daterange'
       }
     }
+  ],
+  operateBtns:[
+    {
+      type:'common',
+      text:'搜索',
+      icon:<SearchOutlined />,
+      clickFn:'search',
+    },
+    {
+      type:'downLoad',
+      text:'导出',
+      icon:<DownloadOutlined />,
+      clickFn:'downLoad',
+    },
+    {
+      type:'reset',
+      text:'重置',
+      icon:<SyncOutlined />,
+      clickFn:'reset',
+    },
+    {
+      type:'common',
+      text:'添加',
+      icon:<PlusCircleOutlined />,
+      clickFn:'add',
+    },
+    {
+      type:'delete',
+      text:'删除',
+      icon:<DeleteOutlined />,
+      clickFn:'delete',
+    },
   ]
 }

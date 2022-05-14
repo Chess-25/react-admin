@@ -15,7 +15,7 @@ import {
 } from "@ant-design/icons";
 
 const NavMenu = memo((props) => {
-  
+  const {collapsed}=props
   const { menuList,tagsList } = useSelector((state) => ({
     menuList: JSON.parse(JSON.stringify(state.menu.menuList)),
     tagsList: JSON.parse(JSON.stringify(state.menu.tagsList)),
@@ -36,10 +36,10 @@ const NavMenu = memo((props) => {
       arr.push(item)
     }
   }
-  console.log(arr);
-  console.log(routes);
   let bread = [{id:'11'},{id:'11'}]
-  if (location.pathname!=='/main/home') {
+  //选中menu对应的bread
+  const routesIndex = routes.findIndex(tag => tag.path === location.pathname)
+  if (location.pathname!=='/main/home' && routesIndex!==-1) {
     bread = pathMapBreadcrumbs(menuList, location.pathname)
     const tagIndex = tagsList.findIndex(tag => tag.name === bread[1].name)
     if (tagIndex===-1) {
@@ -62,13 +62,16 @@ const NavMenu = memo((props) => {
   },[location])// eslint-disable-line
   return (
     <MenuWrapper>
-      <div>
+      <div className="menu">
         {/* ant 4.20.0之前的用法 */}
+        <div className={"logo " + (collapsed?"active":"")}><img src={require("@/assets/img/logo.png")} alt="logo"/>
+          {!collapsed&&<span>React-Admin</span>}
+          </div>
         <Menu defaultOpenKeys={[breadcrumbs[0].id]} defaultSelectedKeys={[breadcrumbs[1].id]} selectedKeys={[breadcrumbs[1].id]} mode="inline" theme="dark">
           {menuList.map(list=>{
             return(
               list.children.length===0?<Menu.Item key={list.key} onClick={e=>menuClick(list)} icon={<AppstoreOutlined/>}>{list.label}</Menu.Item>:
-              <Menu.SubMenu key={list.key} title={list.label} icon={<AppstoreOutlined/>}  className={"sub-menu " + (breadcrumbs[0].name===list.label?"active":"")} >
+              <Menu.SubMenu key={list.key} title={list.label} icon={<AppstoreOutlined />}  className={"sub-menu " + (breadcrumbs[0].id===list.id?"active":"")} >
                 {list.children.map(item=>{
                   return(
                     <Menu.Item key={item.key} onClick={e=>menuClick(item)}>{item.label}</Menu.Item>

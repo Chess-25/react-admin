@@ -1,0 +1,39 @@
+/* operateBtns动态传来的className */
+.common{
+  color: #fff;
+  background-color: #1890ff;
+}
+.common:hover{
+  background-color: #71b6f6;
+}
+.edit{
+  color: #fff;
+  background-color: #ffba00;
+}
+.edit:hover{
+  background-color: #fdd66d;
+}
+.downLoad{
+  color: #fff;
+  background-color: #13ce66;
+}
+.downLoad:hover{
+  color: #fff;
+  background-color: #78cc9c;
+}
+.reset{
+  color: #fff;
+  background-color: #ffba00;
+}
+.reset:hover{
+  color: #fff;
+  background-color: #fdd66d;
+}
+.delete{
+  color: #fff;
+  background-color: #ff4d4f;
+}
+.delete:hover{
+  color: #fff;
+  background-color: #fd8b8d;
+}

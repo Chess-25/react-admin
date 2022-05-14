@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const TagsViewWrapper = styled.div`
   padding: 10px 20px;
-  height: 50px;
+  height: 40px;
   display: flex;
   align-items: center;
   .activeTag{

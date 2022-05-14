@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 
 import { LoginWrapper, LoginPanelWrapper} from "./style";
 // import loginDog from "@/assets/img/login-dog.jpg";
@@ -7,17 +7,19 @@ import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, UnlockOutlined, QrcodeOutlined } from '@ant-design/icons';
 
 import { useHistory } from "react-router-dom";
+import {rules} from './config'
+import localCache from "@/utils/cache.js";
 
 const Login = memo(() => {
-  const rules = {
-    username:[{ required: true, message: '请输入用户名!' }],
-    password:[{ required: true, message: '请输入密码!' }],
-    code:[{ required: true, message: '请输入验证码!' }],
-  }
   const history = useHistory()
+  let [remember,setRemember] = useState(false)
+  const isRemember = (e)=>{
+    setRemember(e.target.checked)
+  }
   const onFinish = (values)=>{
     if (values.username ==='chess'&&values.password==='123456') {
-      history.push('/main/analysis/overview')
+      localCache.setCache("token","123456");
+      history.push('/main/home')
     }
   }
   const onFinishFailed = (errorInfo) =>{
@@ -32,7 +34,7 @@ const Login = memo(() => {
         {/* <img src={loginDog} alt="" /> */}
         <h1 className="title">基于REACT+JS的</h1>
         <h1>后台管理系统</h1>
-        <Form name="basic" labelCol={{ span: 6 }} onFinish={onFinish} onFinishFailed={onFinishFailed} initialValues={{remember: true}}>
+        <Form name="basic" labelCol={{ span: 6 }} onFinish={onFinish} onFinishFailed={onFinishFailed} initialValues={{remember: remember}}>
           <div className="login-form">
             <div className="title">欢迎登录</div>
             <Form.Item name="username" rules={rules.username}>
@@ -47,7 +49,7 @@ const Login = memo(() => {
           </div>
           <Form.Item name="remember" valuePropName="checked">
             <div className='checkbox'>
-              <Checkbox><span>记住密码</span></Checkbox>
+              <Checkbox onChange={isRemember}><span>记住密码</span></Checkbox>
               <span>忘记密码</span>
             </div>
           </Form.Item>

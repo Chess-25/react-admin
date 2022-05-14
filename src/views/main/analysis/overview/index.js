@@ -1,10 +1,12 @@
 import React, { memo } from 'react';
 
+import { OverviewWrapper } from "./style"
+
 const Overview = memo(() => {
   return (
-    <div>
+    <OverviewWrapper>
       Overview
-    </div>
+    </OverviewWrapper>
   );
 });
 
