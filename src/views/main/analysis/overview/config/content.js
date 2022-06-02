@@ -2,24 +2,23 @@ import { EyeOutlined,EditOutlined,DeleteOutlined,SearchOutlined,DownloadOutlined
 
 export const contentConfig = {
   type:'user',
-  title: "用户",
+  title: "用户列表",
   createText: "新建用户",
   module: "systemModule",
   propList: [
-    { title: "操作", key: 'operate',fixed: 'left',align: 'center',icon:<EditOutlined/>,
+    { title: "操作",width:100, key: 'operate',fixed: 'left',align: 'center',icon:<EditOutlined/>,
       operateBtns:[
-        {type:'detail',text:'详情',icon:<EyeOutlined />,clickFn:'detail'},
+        {type:'view',text:'查看',icon:<EyeOutlined />,clickFn:'view'},
+        {type:'edit',text:'编辑',icon:<EditOutlined />,clickFn:'edit'},
         {type:'delete',text:'删除',icon:<DeleteOutlined />,clickFn:'delete'},
       ]
     },
     { title: "用户头像", width: 70,dataIndex: 'img',align: 'center',key: 'img',},
-    { title: "id", width: 70 ,dataIndex: 'iid',key: 'iid',align: 'center',ellipsis: true,},
-    { title: "用户名", width: 100 ,dataIndex: 'username',key: 'username',align: 'center',ellipsis: true,search:'input',},
-    { title: "真实姓名", width: 80 ,dataIndex: 'realname',key: 'realname',align: 'center',ellipsis: true},
-    { title: "部门", width: 70 ,dataIndex: 'departmentId',key: 'departmentId',align: 'center',ellipsis: true},
-    { title: "岗位", width: 70 ,dataIndex: 'roleId',key: 'roleId',align: 'center',ellipsis: true},
+    { title: "id", width: 80 ,dataIndex: 'iid',key: 'iid',ellipsis: true,},
+    { title: "用户名", width: 100 ,dataIndex: 'name',key: 'name',align: 'center',ellipsis: true,search:'input',},
+    { title: "真实姓名", width: 150 ,dataIndex: 'realname',key: 'realname',ellipsis: true},
     { title: "手机号码", width: 100 ,dataIndex: 'cellphone',key:'cellphone',ellipsis: true},
-    { title: "状态", width: 70, dataIndex:'status',align: 'center',key:'status',ellipsis: true,search:'dropdown',
+    { title: "状态", width: 80, dataIndex:'status',align: 'center',key:'status',ellipsis: true,search:'select',
       filters: [
         {
           text: '全部',
@@ -73,7 +72,7 @@ export const contentConfig = {
       type:'delete',
       text:'删除',
       icon:<DeleteOutlined />,
-      clickFn:'batch_delete',
+      clickFn:'delete',
     },
   ],
   showIndexColumn: true,

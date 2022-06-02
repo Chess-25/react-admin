@@ -7,9 +7,13 @@ import MyTable from "@/components/myTable"
 import { contentConfig } from "./config/content";
 import { modalConfig } from "./config/modal";
 
+import { useLocation } from "react-router-dom";
+
 const User = memo(() => {
+
+  const location = useLocation()
   return (
-    <UserWrapper>
+    <UserWrapper hidden={location.pathname!=='/main/system/user'}>
       {/* <div class="content-bar">
         <span class="content-title">用户管理</span>
       </div> */}

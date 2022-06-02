@@ -34,6 +34,14 @@ export const OperateBtnsWrapper = styled.div`
     color: #fff;
     background-color: #fdd66d;
   }
+  .batch_delete{
+    color: #fff;
+    background-color: #ff4d4f;
+  }
+  .batch_delete:hover{
+    color: #fff;
+    background-color: #fd8b8d;
+  }
   .delete{
     color: #fff;
     background-color: #ff4d4f;

@@ -3,25 +3,26 @@ import { EyeOutlined,EditOutlined,DeleteOutlined,SearchOutlined,DownloadOutlined
 
 export const contentConfig = {
   type:'goods',
-  title: "商品列表",
+  title: "商品",
   createText: "新建商品",
   module: "systemModule",
   propList: [
     { title: "操作", key: 'operate',fixed: 'left',align: 'center',icon:<EditOutlined/>,
       operateBtns:[
-        {type:'view',text:'查看',icon:<EyeOutlined />,clickFn:'view'},
-        {type:'edit',text:'编辑',icon:<EditOutlined />,clickFn:'edit'},
+        {type:'detail',text:'详情',icon:<EyeOutlined />,clickFn:'detail'},
+        // {type:'edit',text:'编辑',icon:<EditOutlined />,clickFn:'edit'},
         {type:'delete',text:'删除',icon:<DeleteOutlined />,clickFn:'delete'},
       ]
     },
+    { title: "id", width: 70 ,dataIndex: 'iid',key: 'iid',align: 'center',ellipsis: true,hidden:true,},
     { title: "商品图片", width: 70 ,dataIndex: 'img',align: 'center',key: 'img',},
     { title: "商品名称", width: 150 ,dataIndex: 'goodsName',key: 'goodsName',ellipsis: true,align: 'center',search:'input'},
     { title: "商品标题", width: 150 ,dataIndex: 'title',key: 'title',ellipsis: true,align: 'center',search:'input'},
-    { title: "原价格", width: 100 ,dataIndex: 'orgPrice',key:'orgPrice',ellipsis: true,},
-    { title: "现价格", width: 100 ,dataIndex: 'price',key:'price',ellipsis: true,
+    { title: "原价格", width: 90 ,dataIndex: 'orgPrice',key:'orgPrice',ellipsis: true,},
+    { title: "现价格", width: 90 ,dataIndex: 'price',key:'price',ellipsis: true,
       sorter: {compare: (a, b) => a.price - b.price ? 1 : -1}
     },
-    { title: "收藏人数", width: 80 ,dataIndex:'cfav',key:'cfav', ellipsis: true,
+    { title: "收藏人数", width: 90 ,dataIndex:'cfav',key:'cfav', ellipsis: true,
       sorter: {compare: (a, b) => a.cfav - b.cfav ? 1 : -1}
     },
     { title: "状态", width: 80, dataIndex:'status',align: 'center',key:'status',ellipsis: true, search:'select',
@@ -72,7 +73,7 @@ export const contentConfig = {
       type:'delete',
       text:'删除',
       icon:<DeleteOutlined />,
-      clickFn:'delete',
+      clickFn:'batch_delete',
     },
   ],
   showIndexColumn: true,

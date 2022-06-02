@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Redirect, Switch } from 'react-router-dom'
+
 import localCache from "@/utils/cache"
 const renderRoutes = (routes, authed=localCache.getCache("token"), authPath='/login', extraProps = {}, switchProps = {}) => routes ? (
   <Switch {...switchProps}>

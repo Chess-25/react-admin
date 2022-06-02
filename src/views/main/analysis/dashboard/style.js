@@ -8,6 +8,6 @@ export const DashboardWrapper = styled.div`
     padding: 20px;
   }
   .top-row{
-    margin: 10px 0;
+    margin-bottom: 10px;
   }
 `

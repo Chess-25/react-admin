@@ -3,9 +3,8 @@ import { useHistory, useLocation } from "react-router-dom";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { tagsListAction } from "@/store/menu/actionCreaters"
 // import { menuListAction } from "@/store/menu/actionCreaters";
-import { pathMapBreadcrumbs } from "@/utils/mapMenus"
 // import {getHome} from '@/services/login'
-import { mapToMenuRoutes } from "@/utils/mapMenus"
+import { mapToMenuRoutes,pathMapBreadcrumbs } from "@/utils/mapMenus"
 
 import { MenuWrapper } from "./style";
 
@@ -30,17 +29,13 @@ const NavMenu = memo((props) => {
   const history = useHistory()
   const location = useLocation()
   const routes = mapToMenuRoutes(menuList)
-  let arr = []
-  for (const list of menuList) {
-    for (const item of list.children) {
-      arr.push(item)
-    }
-  }
+
   let bread = [{id:'11'},{id:'11'}]
   //选中menu对应的bread
   const routesIndex = routes.findIndex(tag => tag.path === location.pathname)
   if (location.pathname!=='/main/home' && routesIndex!==-1) {
     bread = pathMapBreadcrumbs(menuList, location.pathname)
+    // console.log(5,menuList, location.pathname,bread);
     const tagIndex = tagsList.findIndex(tag => tag.name === bread[1].name)
     if (tagIndex===-1) {
       tagsList.push({name:bread[1].name,path:location.pathname})

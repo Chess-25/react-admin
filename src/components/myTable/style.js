@@ -29,11 +29,11 @@ export const MyTableWrapper = styled.div`
         cursor: pointer;
       }
       /* operateBtns动态传来的className */
-      .view{
+      .detail{
         color: #1890ff;
         margin-right: 6px;
       }
-      .view:hover{
+      .detail:hover{
         color: #71b6f6;
       }
       .edit{

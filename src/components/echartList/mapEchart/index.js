@@ -12,7 +12,7 @@ const MapEchart = memo((props) => {
       text: "全国销量统计",
       left: "center",
       textStyle: {
-        color: "#fff"
+        color: "#000"
       }
     },
     tooltip: {

@@ -32,7 +32,6 @@ const Dashboard = memo(() => {
     const statisticResult = await API.getGoodsStatistics();
     setStatisticData(statisticResult)
   }
-  console.log(statisticData);
   useEffect(()=>{
     getGoodsStatistics()
   },[])// eslint-disable-line
@@ -42,7 +41,7 @@ const Dashboard = memo(() => {
       <Row gutter={[10]} className='top-row'>
         <Col span={8}>
           <Card title="数据统计" bordered={false}>
-            {statisticData.statistic.length>0&&<PieEchart pieData={statisticData.statistic}/>}
+            <PieEchart pieData={statisticData.statistic}/>
           </Card>
         </Col>
         <Col span={8}>

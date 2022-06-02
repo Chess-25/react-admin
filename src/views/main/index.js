@@ -20,11 +20,25 @@ import { Layout } from "antd";
 
 import renderRoutes from '@/utils/renderRoutes';
 import { useLocation } from "react-router-dom";
+import { useSelector, shallowEqual } from "react-redux";
 // import { useHistory,useLocation } from "react-router-dom";
 
 const { Header, Sider, Content } = Layout;
 
 const Home = memo((props) => {
+  const { menuList } = useSelector((state) => ({
+    menuList: JSON.parse(JSON.stringify(state.menu.menuList)),
+  }),shallowEqual);
+  let arr = []
+  for (const menu of menuList) {
+    if (menu.children.length===0) {
+      arr.push(menu)
+    }else{
+      for (const item of menu.children) {
+        arr.push(item)
+      }
+    }
+  }
   const { route } = props;
   // const location = useLocation()
   // const history = useHistory()
@@ -32,18 +46,20 @@ const Home = memo((props) => {
   //   history.push('/404')
   // }
   const location = useLocation()
-  const routeIndex = route.routes.findIndex(item=>item.path ===location.pathname)
+  const arrIndex = arr.findIndex(item=>item.url ===location.pathname)//查看权限里是否有该页面若没有则跳转404
+  // const routeIndex = route.routes.findIndex(item=>item.path ===location.pathname)
+
   const authed=localCache.getCache("token")
   let [collapsed,setCollapsed] = useState(false)
   const toggle = () => {
     setCollapsed(!collapsed)
   };
   useEffect(()=>{
-   
+
   },[])// eslint-disable-line
   return (
     <MainWrapper>
-      {routeIndex===-1&&authed?<NotFound/>:
+      {arrIndex===-1&&authed?<NotFound/>:
       <Layout>
         <Sider className="sider" width={200} collapsed={collapsed}>
           <NavMenu collapsed={collapsed}/>

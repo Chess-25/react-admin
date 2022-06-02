@@ -11,6 +11,8 @@ import Goods from "@/views/main/product/goods";
 import Chat from "@/views/main/story/chat";
 import List from "@/views/main/story/list";
 
+import User2 from "@/views/main/analysis/user";
+
 import Login from "@/views/login";
 import NotFound from "@/views/notFound";
 
@@ -25,6 +27,7 @@ const routes = [
   {
     path: "/main",
     component: Main,
+    requiresAuth:true,
     routes: [
       {
         path: "/main",
@@ -44,6 +47,11 @@ const routes = [
       {
         path: "/main/analysis/dashboard",
         component:Dashboard,
+        requiresAuth:true,
+      },
+      {
+        path: "/main/analysis/user",
+        component:User2,
         requiresAuth:true,
       },
       {

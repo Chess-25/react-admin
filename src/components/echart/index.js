@@ -4,8 +4,6 @@ import { MyEchartsWrapper } from './style'
 
 import * as echarts from 'echarts';
 import chinaMapData from "./data/china.json";
-/* 工具库 */
-// import { convertData } from "./utils/convertData";
 
 const myEcharts = memo((props) => {
   const {option} = props

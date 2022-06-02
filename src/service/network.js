@@ -1,7 +1,6 @@
 import axios from "axios"
 
-// import { Spin } from 'antd';
-// import { message } from 'antd';
+import { message } from 'antd';
 
 const DEAFULT_LOADING = true
 
@@ -57,9 +56,10 @@ class CHHRequest {
         //   return data
         // }
         if (data.success) {
+          message.success('加载成功')
           return data
         }else{
-          // message(data.data)
+          message.error(res.data.message)
           return new Error(data.data)
         }
       },
