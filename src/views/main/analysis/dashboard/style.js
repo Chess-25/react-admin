@@ -10,4 +10,12 @@ export const DashboardWrapper = styled.div`
   .top-row{
     margin-bottom: 10px;
   }
+  .snapshot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 80px;
+    background-color: red;
+  }
 `
