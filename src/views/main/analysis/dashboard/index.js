@@ -81,7 +81,7 @@ const Dashboard = memo(() => {
   }, []); // eslint-disable-line
   return Object.keys(statisticData).length > 0 ? (
     <DashboardWrapper>
-      <div onClick={toImage} ref={snapshot_ref} className="snapshot">点击截图</div>
+      <div onClick={toImage} className="snapshot">点击截图</div>
       <img src={snapshotUrl} alt=""/>
       <Row gutter={[10]} className="top-row">
         <Col span={8}>
