@@ -56,7 +56,7 @@ class CHHRequest {
         //   return data
         // }
         if (data.success) {
-          message.success('加载成功')
+          message.success(data.message)
           return data
         }else{
           message.error(res.data.message)

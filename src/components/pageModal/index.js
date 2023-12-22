@@ -24,6 +24,11 @@ const PageModal = memo((props) => {
       modalForm.resetFields();
       setIsEdit(true)
     }
+    if (tableForm.type==='edit') {
+      setModalTitle('编辑' + tableForm.form.title)
+      modalForm.setFieldsValue(tableForm.formData)
+      setIsEdit(true)
+    }
     if (tableForm.type==='detail') {
       setModalTitle(tableForm.form.title + '详情')
       setIsEdit(false)
@@ -54,6 +59,9 @@ const PageModal = memo((props) => {
          }).catch(errors => {
           console.log(2,errors);
         });
+        break;
+      case "back":
+        modalClick('back')
         break;
       default:
         setIsEdit(false)

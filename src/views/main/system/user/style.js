@@ -1,31 +1,48 @@
 import styled from 'styled-components';
 
 export const UserWrapper = styled.div`
-  .content-box {
-    height: 100%;
-    background: #ffffff;
-    //margin: 7.5px 0;
-    padding: 20px;
-    border: 1px solid #e7e7e7;
-    border-radius: 3px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding:0 20px;
+  background-color: #fff;
+  .search {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    .date-picker{
+      margin-bottom: 2px;
+    }
   }
-    .content-bar {
-    line-height: 50px;
-    //background: #ececec;
-    background: linear-gradient(to right,#ddd, #fff);
-    margin-bottom: 20px;
-    box-sizing: border-box;
+  .table-btn {
+    display: flex;
+    justify-content: center;
+    padding: 0 2px;
+    span{
+      cursor: pointer;
+    }
+    /* operateBtns动态传来的className */
+    .detail{
+      color: #1890ff;
+      margin-right: 6px;
+    }
+    .detail:hover{
+      color: #71b6f6;
+    }
+    .edit{
+      color: #ffba00;
+      margin-right: 6px;
+    }
+    .edit:hover{
+      color: #fdd66d;
+    }
+    .delete{
+      color: #ff4d4f;
+    }
+    .delete:hover{
+      color: #fd8b8d;
+    }
   }
-  .content-title {
-    text-shadow: 2px 2px #ccc;
-    display: inline-block;
-    padding: 0 20px;
-    color: rgb(48, 65, 86);
-    font-weight: bold;
-    border-left: 14px solid rgb(48, 65, 86);
-    letter-spacing: 0.06em;
-    font-size: 15px;
+  .image{
+    width: 48px;
+    height: 48px;
   }
-  
 `

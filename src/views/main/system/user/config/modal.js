@@ -1,13 +1,13 @@
 export const modalConfig = {
   title: "用户",
   formItems: [
-    { field: "iid",type: "hidden",label: "iid",},
-    { field: "status",type: "hidden",label: "状态",},
+    { field: "id",type: "hidden",label: "id",},
+    { field: "status",type: "hidden",label: "状态"},
     { field: "username",type: "input",label: "用户名",placeholder: "请输入用户名"},
     { field: "realname",type: "input",label: "真实姓名",placeholder: "请输入真实姓名"},
-    { field: "password",type: "input",label: "用户密码",placeholder: "请输入密码",},
+    { field: "password",type: "input",label: "用户密码",placeholder: "请输入密码"},
     { field: "cellphone",type: "input",label: "电话号码",placeholder: "请输入电话号码"},
-    { field: "departmentId",type: "tree",label: "选择部门",placeholder: "请选择部门",
+    { field: "depName",type: "tree",label: "选择部门",placeholder: "请选择部门",
       options: [
         {
             title: '研发部',
@@ -35,7 +35,7 @@ export const modalConfig = {
         }
       ]
     },
-    { field: "roleId",type: "select",label: "选择角色",placeholder: "请选择角色",
+    { field: "postName",type: "select",label: "选择角色",placeholder: "请选择角色",
       options: [
         { title: '前端', value: '前端' },
         { title: '后端', value: '后端' },
@@ -45,8 +45,6 @@ export const modalConfig = {
   ],
   //表单校验规则
   rules: {
-    iid: [ {required: false, trigger: "blur"},{ trigger: "blur"}],
-    status: [ {required: false,trigger: "blur"},{trigger: "blur"}],
     username: [
       {
         required: true,
@@ -95,14 +93,14 @@ export const modalConfig = {
         trigger: "change"
       }
     ],
-    departmentId: [
+    depName: [
       {
         required: true,
         message: "请选择部门!",
         trigger: "blur"
       },
     ],
-    roleId: [
+    postName: [
       {
         required: true,
         message: "请选择角色!",
