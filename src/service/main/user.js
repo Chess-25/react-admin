@@ -1,8 +1,9 @@
 import { chhRequest } from "@/service/index"
 
-export function getList() {
+export function getList(data) {
   return chhRequest.get({
     url: "/user/list",
+    params: data,
   })
 }
 export function addUser(data) {
